@@ -1,0 +1,44 @@
+buildscript {
+    ext {
+        springBootVersion = '2.1.1.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // SpringBoot
+    implementation('org.springframework.boot:spring-boot-starter-web')
+
+    // Dev Tools
+    implementation('org.springframework.boot:spring-boot-devtools')
+
+    // Http Client
+    implementation 'org.apache.httpcomponents:httpclient:4.5.6'
+
+    // Fast Json
+    implementation 'com.alibaba:fastjson:1.2.54'
+
+    // Thymeleaf
+    implementation('org.springframework.boot:spring-boot-starter-thymeleaf')
+
+    // SpringBoot Test
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+}
